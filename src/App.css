@@ -1,9 +1,10 @@
+
 *body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    
 }
+
 /* header */
 .box{
     width: 22%;
@@ -12,7 +13,6 @@
     border-radius: 0.6rem;
     box-shadow: 0.4px 1px 2px 0.2px #888888;
 }
-
 
 .flex-name{
     display: flex;
@@ -25,8 +25,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    padding-top: 2rem;
-    
+    padding-top: 2rem;  
 }
 
 .colume-info{
@@ -35,11 +34,80 @@
     text-align: center;
 }
 
-
 .computer-color{
     color: red;
 }
 
 .user-color{
     color:blue;
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+:root {
+  --border-radius: 10px;
+  --large-screen-width: 30%;
+  --medium-screen-width: 50%;
+  --small-screen-width: 100%;
+  --box-shadow: 1px 1px 1px gray;
+}
+
+.App {
+  text-align: center;
+  width: var(--small-screen-width);
+  border: 1px solid gray;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Selection rules */
+
+.selection-btn {
+  padding: 15px 10px;
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s linear;
+}
+
+.selection-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.selection-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 80%;
+}
+
+@media (min-width:900px){
+  .App {
+    width: var(--mediam-screen-width);
+  }
+} 
+
+@media (min-width:1224px){
+  .App {
+    width: var(--large-screen-width);
+  }  
+}  
+
+.papper {
+  color: green;
+}
+
+.rock{
+  color: blue;
+}
+
+.scissors {
+  color: red;
 }
