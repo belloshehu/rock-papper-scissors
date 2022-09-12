@@ -8,35 +8,26 @@ export const Header = () => {
 
   return (
   <React.Fragment>
-
-
-
-<div className='box-container'>
-      <div className='box'>
-       
-       <div className='colume-info'>
-        <div className='flex-name'>
-          <span colume-computer>
-          <h4 className='computer-color'>Computer</h4>
+    <div className='box'>
+      <div className='colume-info'>
+      <div className='flex-name'>
+        <span colume-computer>
+        <h4 className='computer-color'>Computer</h4>
+        <span>0</span>
+        </span>
+      
+        <span colume-computer>
+          <h4 className='user-color'>user</h4>
           <span>0</span>
-          </span>
-        
-          <span colume-computer>
-            <h4 className='user-color'>user</h4>
-            <span>0</span>
-          </span>
-        </div>
-
-        <div className='round-border'>
-        <span className='round'> <h3>Round: </h3></span>
-        </div>
-        </div>
-
+        </span>
       </div>
+
+      <div className='round-border'>
+      <span className='round'> <h3>Round: </h3></span>
+      </div>
+      </div>
+
     </div>
-
-
-    
   </React.Fragment>
   )
 }
