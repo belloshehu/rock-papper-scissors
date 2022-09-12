@@ -1,9 +1,49 @@
-*, *::after, *::before{
-  box-sizing: border-box;
+
+*body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-body {
-  margin: 0%;
+/* header */
+.box{
+    width: 22%;
+    border: none;
+    height: 125px;
+    border-radius: 0.6rem;
+    box-shadow: 0.4px 1px 2px 0.2px #888888;
+}
+
+.flex-name{
+    display: flex;
+    justify-content: space-evenly;
+    padding-right:0.7rem ;
+    word-wrap: normal;
+}
+
+.box-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 2rem;  
+}
+
+.colume-info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.computer-color{
+    color: red;
+}
+
+.user-color{
+    color:blue;
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
 }
 
 :root {
@@ -24,7 +64,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 
 /* Selection rules */
 
