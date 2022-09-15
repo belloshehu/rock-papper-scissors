@@ -3,7 +3,16 @@ import { useRef, useEffect } from 'react'
 import { useGlobalContext } from '../context'
 
 const Selection = ({rank, text, randomState}) => {
-    const {disabled, choice, setChoice, collection} = useGlobalContext()
+    const {
+            disabled, 
+            choice, 
+            setChoice, 
+            collection, 
+            setDisabled,
+            isPlaying,
+            setIsPlaying
+        } = useGlobalContext()
+
     const selectionRef = useRef(null)
 
     const getRandomChoice = () =>{
@@ -20,6 +29,10 @@ const Selection = ({rank, text, randomState}) => {
         const userChoice = collection.filter(item=> item.rank === rank)
         const computerChoice = getRandomChoice()
         setChoice({computer: computerChoice, user: userChoice[0]})
+
+        // enable button for next round
+        setDisabled(prev => !prev)
+        setIsPlaying(prev => !prev)
     }
 
     useEffect(() => {
@@ -31,7 +44,7 @@ const Selection = ({rank, text, randomState}) => {
         <>
             <button 
                 onClick={handleSelection}
-                className={`selection-btn ${randomState} ${!disabled? 'zoom':''} `
+                className={`selection-btn ${randomState} ${!disabled? '':''} `
                 } 
                 ref={selectionRef}>{text}
             </button>

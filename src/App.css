@@ -118,25 +118,29 @@ body{
   font-size: 1.5rem;
   font-weight: bold;
   transition: all 0.5s linear;
-  animation: zoom 1s linear infinite;
-  background-color: rgb(50, 50, 255);
   color: white;
 }
 
+.blue-bg {
+  background-color: rgb(50, 50, 255);
+}
+
 .play-btn:hover {
-  background-color: rgba(50, 50, 255, 0.8);
+  background-color: rgba(109, 109, 180, 0.8);
 }
 
 .playing {
-  background-color: rgba(153, 255, 255, 1);
+  background-color: rgb(204, 84, 40);
 }
 
 .zoom {
   animation: zoom 1s ease-in-out infinite;
 }
+
 .choice {
   background-color: green;
 }
+
 @keyframes zoom {
   from {
     transform: scale(0.9);

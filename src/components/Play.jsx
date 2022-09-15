@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import collection from '../collection'
 import { useGlobalContext } from '../context'
 
@@ -36,17 +36,20 @@ const Play = () => {
       setDisabled(!disabled)
       setRound(preVal => preVal > 0 ? preVal - 1: preVal -0)
       setIsPlaying(!isPlaying)
-      btnRef.current.style.backgroundColor = 'red';
-      btnRef.current.disabled = true;
+      // btnRef.current.disabled = `${disabled}`;
     }
 
   }
+
+  useEffect(() => {
+  }, [disabled])
+  
   return (
     <>
         <button 
-          className={`play-btn`} 
+          className={`play-btn  ${isPlaying? 'playing zoom': 'blue-bg'}`} 
           onClick={handlePlayGame}
-          ref={btnRef}>Play
+          ref={btnRef}> {isPlaying? 'Playing': 'Play'}
         </button>
     </>
   )
