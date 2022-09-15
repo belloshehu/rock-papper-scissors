@@ -1,8 +1,9 @@
 import React from 'react'
 import { useRef, useEffect } from 'react'
+import { useGlobalContext } from '../context'
 
 const Selection = ({text, randomState}) => {
-
+    const {disabled} = useGlobalContext()
     const selectionRef = useRef(null)
 
     const handleSelection = (e) =>{
@@ -12,12 +13,15 @@ const Selection = ({text, randomState}) => {
 
     useEffect(() => {
         // disable all buttons by default
-        selectionRef.current.disabled = true;
-    }, [])
+        selectionRef.current.disabled = disabled;
+    }, [disabled])
     
     return (
         <>
-            <button className={`selection-btn ${randomState}`} ref={selectionRef}>{text}</button>
+            <button 
+                className={`selection-btn ${randomState} ${!disabled? 'zoom':''}`} 
+                ref={selectionRef}>{text}
+            </button>
         </>
     )
 }

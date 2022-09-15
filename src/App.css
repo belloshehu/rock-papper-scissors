@@ -127,7 +127,13 @@ body{
   background-color: rgba(50, 50, 255, 0.8);
 }
 
+.playing {
+  background-color: rgba(153, 255, 255, 1);
+}
 
+.zoom {
+  animation: zoom 1s ease-in-out infinite;
+}
 @keyframes zoom {
   from {
     transform: scale(0.9);
