@@ -2,13 +2,24 @@ import React from 'react'
 import { useRef, useEffect } from 'react'
 import { useGlobalContext } from '../context'
 
-const Selection = ({text, randomState}) => {
-    const {disabled} = useGlobalContext()
+const Selection = ({rank, text, randomState}) => {
+    const {disabled, choice, setChoice, collection} = useGlobalContext()
     const selectionRef = useRef(null)
+
+    const getRandomChoice = () =>{
+        // returns a random choice for computer
+        let randomRank = Math.floor(Math.random() * 3)
+        const computerChoice = collection.filter(item=> item.rank === randomRank)   
+        return computerChoice[0]     
+      }
 
     const handleSelection = (e) =>{
         // TODO: set selection state value
         // from parent component: SelectionList
+        const {computer, user} = choice
+        const userChoice = collection.filter(item=> item.rank === rank)
+        const computerChoice = getRandomChoice()
+        setChoice({computer: computerChoice, user: userChoice[0]})
     }
 
     useEffect(() => {
@@ -19,7 +30,9 @@ const Selection = ({text, randomState}) => {
     return (
         <>
             <button 
-                className={`selection-btn ${randomState} ${!disabled? 'zoom':''}`} 
+                onClick={handleSelection}
+                className={`selection-btn ${randomState} ${!disabled? 'zoom':''} `
+                } 
                 ref={selectionRef}>{text}
             </button>
         </>
