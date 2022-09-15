@@ -107,3 +107,32 @@ body{
 .scissors {
   color: red;
 }
+
+/* Play button */
+.play-btn {
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  border: none;
+  width: 40%;
+  height: 20%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.5s linear;
+  animation: zoom 1s linear infinite;
+  background-color: rgb(50, 50, 255);
+  color: white;
+}
+
+.play-btn:hover {
+  background-color: rgba(50, 50, 255, 0.8);
+}
+
+
+@keyframes zoom {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.0);
+  }
+}
