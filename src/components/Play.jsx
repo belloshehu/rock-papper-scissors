@@ -10,6 +10,7 @@ const Play = () => {
     disabled,
     collection,
     choice,
+    round,
     setChoice,
     setDisabled,
     setIsPlaying, 
@@ -31,12 +32,16 @@ const Play = () => {
     // decrease round by 1 if round value
     // is greater than 0, otherwise return 0
     
-    if(!isPlaying){
-      // getRandomChoice()
-      setDisabled(!disabled)
-      setRound(preVal => preVal > 0 ? preVal - 1: preVal -0)
-      setIsPlaying(!isPlaying)
-      // btnRef.current.disabled = `${disabled}`;
+    if(round > 0){
+      if(!isPlaying){
+        // getRandomChoice()
+        setDisabled(!disabled)
+        setRound(preVal => preVal > 0 ? preVal - 1: preVal -0)
+        setIsPlaying(!isPlaying)
+        // btnRef.current.disabled = `${disabled}`;
+      }
+    }else{
+      btnRef.current.disabled = true;
     }
 
   }

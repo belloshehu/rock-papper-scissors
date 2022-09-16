@@ -5,7 +5,7 @@ import paper from './images/paper.jpg'
 const collection = [
     {
         text: "Rock",
-        rank: 0,
+        rank: 2,
         image: rock
     },
     {
@@ -15,7 +15,7 @@ const collection = [
     },
     {
         text: "Scissors",
-        rank: 2,
+        rank: 0,
         image: scissors
     }
 ]

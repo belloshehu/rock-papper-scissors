@@ -117,7 +117,7 @@ body{
   }  
 }  
 
-.papper {
+.papper, .green {
   color: green;
 }
 
@@ -125,7 +125,7 @@ body{
   color: blue;
 }
 
-.scissors {
+.scissors, .red {
   color: red;
 }
 
