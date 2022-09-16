@@ -9,7 +9,9 @@
   --medium-screen-width: 50%;
   --small-screen-width: 100%;
   --box-shadow: 1px 1px 1px gray;
-  --container-padding: 20px
+  --container-padding: 20px;
+  --blue-color: rgb(50, 50, 255);
+  --transparent-blue-color: rgba(50, 50, 255, 0.8);
 }
 
 .App {
@@ -29,6 +31,7 @@
 body{
   padding: 0%;
   margin: 0%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* header */
@@ -65,6 +68,11 @@ body{
   width: 50%;
   height: 30px;
 }
+
+.large-icon {
+  width: 80%;
+  height: 60px;
+}
 .user-wrapper {
   border-left: 1px solid grey;
   border-collapse: collapse;
@@ -83,6 +91,15 @@ body{
 }
 
 /* Selection rules */
+
+.btn {
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  width: 100%;
+}
 
 .selection-btn {
   padding: 10px 0px;
@@ -127,6 +144,9 @@ body{
 
 .scissors, .red {
   color: red;
+}
+.gold{
+  color: goldenrod;
 }
 
 /* Play button */
@@ -181,4 +201,96 @@ body{
 .img-wrapper {
   border-top: 1px solid red;
   padding-top: 10px;
+}
+
+/* completion modal */
+.completion-modal {
+  width: var(--small-screen-width);
+  border-radius: var(--border-radius);
+  background-color: var(--transparent-blue-color);
+  padding: var(--container-padding);
+  padding-top: 5%;
+  color: white;
+  margin: auto;
+  transform: translateY(0%);
+  position: absolute;
+  z-index: 2;
+  left: auto;
+  right: auto;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px dashed orange;
+  transition: all 1s linear;
+}
+.winner-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.completion-modal .score {
+  font-size: 3rem;
+  font-family: forte;
+}
+.score-wrapper, .crown-wrapper, .players-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.completion-modal h1 {
+  color: wheat;
+  text-transform: uppercase;
+}
+.completion-modal button {
+  align-self: flex-end;
+}
+@media (min-width:900px){
+  .completion-modal {
+    width: var(--mediam-screen-width);
+  }
+} 
+
+@media (min-width:1224px){
+  .completion-modal {
+    width: var(--large-screen-width);
+  }  
+} 
+.trophy-wrapper {
+  
+}
+
+.trophy {
+  transition: all 0.5s ease-in-out;
+}
+
+.translate {
+  animation: translate 1s linear infinite;
+}
+
+@keyframes translate {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+.rotate {
+  animation: rotate 0.7s linear 3;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

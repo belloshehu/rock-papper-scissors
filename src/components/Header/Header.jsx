@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { AppContext } from '../../context'
 import { useGlobalContext } from '../../context'
-import FaComputer, { FaCrown, FaDesktop, FaList, FaTimes, FaUser } from 'react-icons/fa'
+import { FaCrown, FaDesktop, FaTimes, FaUser } from 'react-icons/fa'
 
 
 

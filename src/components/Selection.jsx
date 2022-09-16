@@ -17,7 +17,7 @@ const Selection = ({rank, text, randomState}) => {
 
     const selectionRef = useRef(null)
     
-    const getWinner = () =>{
+    const getWinnerRound = () =>{
         /*determines who the winner is */
 
         const {user: userChoice, computer: computerChoice} = choice
@@ -58,7 +58,7 @@ const Selection = ({rank, text, randomState}) => {
         setIsPlaying(prev => !prev)
 
         // get winner after a second
-        getWinner()
+        getWinnerRound()
     }
 
     useEffect(() => {
