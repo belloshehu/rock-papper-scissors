@@ -1,30 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import { useGlobalContext } from '../context'
 import Selection from './Selection'
 
 const SelectionList = () => {
+    // class names for each selection button 
     const selectionState = ['rock', 'papper', 'scissors']
     const [randomState, setRandomState] = useState('')
-
-    const selection = [
-        {
-            text: 'Rock',
-            rank: 1,
-        },
-        {
-            text: 'Paper',
-            rank: 2,
-        },
-        {
-            text: 'Scissors',
-            rank: 3,
-        }
-    ]
+    const {collection} = useGlobalContext()
 
     return (
         <div className='selection-wrapper'>
             {
-                selection.map( item =>{
+                collection.map( item =>{
                     return(
                         <Selection key={item.rank} {...item}/>
                     )
