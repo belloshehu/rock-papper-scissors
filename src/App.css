@@ -147,7 +147,7 @@ body{
   align-items: center;
   position: relative;
   padding-bottom: var(--largest-padding);
-  height: 50vh;
+  height: 40vh;
 }
 
 @media (min-width:900px){
