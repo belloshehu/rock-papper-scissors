@@ -11,7 +11,7 @@
   --box-shadow: 1px 1px 1px gray;
   --container-padding: 20px;
   --blue-color: rgb(50, 50, 255);
-  --transparent-blue-color: rgba(50, 50, 255, 0.8);
+  --transparent-blue-color: rgba(50, 50, 255, 0.9);
 }
 
 .App {
@@ -41,6 +41,7 @@ body{
     height: fit-content;
     border-radius: var(--border-radius);
     box-shadow: 0.4px 1px 2px 0.2px #888888;
+    background-color: var(--blue-color);
 }
 
 .flex-name{
@@ -59,9 +60,13 @@ body{
 
 .player-wrapper {
   border-radius: var(--border-radius);
-  border: 1px dotted green;
+  border: 1px dotted var(--blue-color);
+  background-color: white;
   width: 50%;
   padding: 10px;
+}
+.box h3 {
+  color: white;
 }
 
 .player{
@@ -107,6 +112,8 @@ body{
   border: none;
   box-shadow: var(--box-shadow);
   transition: all 0.4s linear;
+  background-color: white;
+  color: var(--blue-color);
 }
 
 .selection-btn:hover {
@@ -119,7 +126,11 @@ body{
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  width: 80%;
+  width: 100%;
+  background-color: var(--blue-color);
+  padding: var(--container-padding);
+  color: white;
+  border-radius: var(--border-radius);
 }
 
 @media (min-width:900px){
@@ -154,12 +165,13 @@ body{
   border-radius: 50%;
   box-shadow: var(--box-shadow);
   border: none;
-  width: 40%;
-  height: 20%;
-  font-size: 1.5rem;
+  width: 20%;
+  height: 10%;
+  font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.5s linear;
   color: white;
+  padding: 10px 5px;
 }
 
 .blue-bg {
@@ -199,7 +211,7 @@ body{
   margin: 0;
 }
 .img-wrapper {
-  border-top: 1px solid red;
+  border-top: 1px solid var(--blue-color);
   padding-top: 10px;
 }
 

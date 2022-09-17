@@ -40,8 +40,8 @@ export const Header = () => {
           </div>
         </div>
 
-        <div className='round-border'>
-          <span className='round'> <h3>Round {round}</h3></span>
+        <div>
+          <h3>Round {round}</h3>
         </div>
     </div>
   </React.Fragment>

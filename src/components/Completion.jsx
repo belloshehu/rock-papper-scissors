@@ -48,7 +48,7 @@ export const Completion = () => {
                             {score.user > score.computer? <FaUser className='player zoom' /> : <FaDesktop className='player zoom'/>}
                         </div>
                         {/* <h2 className='score'>{getFinalWinner()}/10</h2> */}
-                        <p>You are the new king</p>
+                        { score.user > score.computer? <p>You are the new king</p>:<p>Computer is the new king</p>}
                         <div><FaCrown className='player large-icon' /></div>
                     </div>
                 ):
