@@ -6,17 +6,18 @@ import SelectionList from './components/SelectionList';
 import {useContext} from 'react'
 import { Completion } from './components/Completion';
 import { useGlobalContext } from './context';
+import { FaHandsHelping } from 'react-icons/fa';
 
 function App() {
   const first = useContext({}) // 
   const {round, isPlaying} = useGlobalContext()
   return (
     <div className="App">
-      <h1>Rock Papper Scissors</h1>
+      <h1 className='title'>Rock Papper Scissors</h1>
       {(round === 0 && !isPlaying) && <Completion />}
       <Header/>
       <SelectionList />
-      <Play />
+      <FaHandsHelping  className='help'/>
     </div>
   );
 }

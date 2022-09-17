@@ -35,8 +35,7 @@ const Play = () => {
     if(round > 0){
       if(!isPlaying){
         // getRandomChoice()
-        setDisabled(!disabled)
-        setRound(preVal => preVal > 0 ? preVal - 1: preVal -0)
+        setDisabled(!disabled)        
         setIsPlaying(!isPlaying)
         // btnRef.current.disabled = `${disabled}`;
       }
@@ -52,7 +51,7 @@ const Play = () => {
   return (
     <>
         <button 
-          className={`play-btn  ${isPlaying? 'playing zoom': 'blue-bg'}`} 
+          className={`play-btn  ${isPlaying? 'playing zoom': 'grey'}`} 
           onClick={handlePlayGame}
           ref={btnRef}> {isPlaying? 'Playing': 'Play'}
         </button>

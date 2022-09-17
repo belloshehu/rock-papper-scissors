@@ -7,11 +7,11 @@ const Selection = ({rank, text, randomState}) => {
             disabled, 
             choice, 
             score,
+            setRound,
             setScore,
             setChoice, 
             collection, 
             setDisabled,
-            isPlaying,
             setIsPlaying
         } = useGlobalContext()
 
@@ -24,14 +24,10 @@ const Selection = ({rank, text, randomState}) => {
         console.log('user:', userChoice, 'comu:', computerChoice)
 
         if(userChoice.rank > computerChoice.rank){
-            setScore(prev => {
-                return{user: prev.user + 1, computer: prev.computer + 0}
-            })
+            setScore({...score, user: score.user + 1})
             return userChoice
         }else if(userChoice.rank < computerChoice.rank){
-             setScore(prev => {
-                return{user: prev.user + 0, computer: prev.computer + 1}
-            })
+            setScore({...score, computer: score.computer + 1})
             return computerChoice
         }else{
             return null
@@ -56,6 +52,9 @@ const Selection = ({rank, text, randomState}) => {
         // enable button for next round
         setDisabled(prev => !prev)
         setIsPlaying(prev => !prev)
+
+        //update round
+        setRound(preVal => preVal > 0 ? preVal - 1: preVal -0)
 
         // get winner after a second
         getWinnerRound()

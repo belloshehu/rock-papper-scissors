@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AppContext } from '../../context'
 import { useGlobalContext } from '../../context'
 import { FaCrown, FaDesktop, FaTimes, FaUser } from 'react-icons/fa'
@@ -9,6 +9,11 @@ import { FaCrown, FaDesktop, FaTimes, FaUser } from 'react-icons/fa'
 
 export const Header = () => {
   const {score, round, choice} = useGlobalContext() 
+
+  useEffect(() => {
+   
+  }, [round])
+  
   return (
   <React.Fragment>
     <div className='box'>
@@ -40,7 +45,7 @@ export const Header = () => {
           </div>
         </div>
 
-        <div>
+        <div className='round'>
           <h3>Round {round}</h3>
         </div>
     </div>

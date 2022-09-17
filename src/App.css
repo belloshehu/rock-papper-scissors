@@ -9,7 +9,12 @@
   --medium-screen-width: 50%;
   --small-screen-width: 100%;
   --box-shadow: 1px 1px 1px gray;
+  --smaller-padding: 5px;
+  --small-padding: 10px;
   --container-padding: 20px;
+  --large-padding: 40px;
+  --larger-padding: 60px;
+  --largest-padding: 80px;
   --blue-color: rgb(50, 50, 255);
   --transparent-blue-color: rgba(50, 50, 255, 0.9);
 }
@@ -17,15 +22,15 @@
 .App {
   text-align: center;
   width: var(--small-screen-width);
-  border: 1px solid gray;
   height: 100vh;
   margin: auto;
   display: flex;
-  row-gap: 20px;
+  row-gap: 0px;
   flex-direction: column;
   align-items: center;
   padding: var(--container-padding);
   border-radius: var(--border-radius);
+  padding-top: 1px;
 }
 
 body{
@@ -39,7 +44,7 @@ body{
     width: 100%;
     border: none;
     height: fit-content;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     box-shadow: 0.4px 1px 2px 0.2px #888888;
     background-color: var(--blue-color);
 }
@@ -49,7 +54,7 @@ body{
     justify-content: space-evenly;
     padding: var(--container-padding);
     word-wrap: normal;
-    gap: 10px;
+    gap: 2px;
 }
 
 .colume-info{
@@ -65,8 +70,15 @@ body{
   width: 50%;
   padding: 10px;
 }
-.box h3 {
-  color: white;
+
+.round {
+  background-color: white;
+  color: var(--blue-color);
+  width: 80%;
+  padding: 0 var(--small-padding);
+  text-align: center;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  
 }
 
 .player{
@@ -114,6 +126,7 @@ body{
   transition: all 0.4s linear;
   background-color: white;
   color: var(--blue-color);
+  width: 100%;
 }
 
 .selection-btn:hover {
@@ -130,7 +143,10 @@ body{
   background-color: var(--blue-color);
   padding: var(--container-padding);
   color: white;
-  border-radius: var(--border-radius);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  align-items: center;
+  position: relative;
+  padding-bottom: var(--largest-padding);
 }
 
 @media (min-width:900px){
@@ -161,17 +177,27 @@ body{
 }
 
 /* Play button */
-.play-btn {
+.play-btn, .top-play-btn{
   border-radius: 50%;
-  box-shadow: var(--box-shadow);
   border: none;
-  width: 20%;
-  height: 10%;
+  width: 90px;
+  height: 90px;
   font-size: 1.1rem;
-  font-weight: bold;
   transition: all 0.5s linear;
-  color: white;
+  color: var(--blue-color);
   padding: 10px 5px;
+  background-color: white;
+  position: absolute;
+  bottom: -45px;
+}
+
+.play-btn{
+  box-shadow: var(--box-shadow);
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--blue-color);
+  bottom: -40px;
+  z-index: 2;
 }
 
 .blue-bg {
@@ -226,10 +252,10 @@ body{
   margin: auto;
   transform: translateY(0%);
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: auto;
   right: auto;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -305,4 +331,11 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+
+/* title */
+.title{
+  padding: 0%;
+  margin: 5px 0%;
+  color: var(--blue-color);
 }
