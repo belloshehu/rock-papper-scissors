@@ -16,6 +16,7 @@ const AppProvider = ({children}) =>{
     const [isPlaying, setIsPlaying] = useState(false)
     const [playingClassName, setPlayingClassName] = useState('playing')
     const [disabled, setDisabled] = useState(true)
+    const [showHelp, setShowHelp] = useState(false)
 
     return(
         <AppContext.Provider value={
@@ -23,6 +24,8 @@ const AppProvider = ({children}) =>{
                 score, 
                 setScore, 
                 round, 
+                showHelp,
+                setShowHelp,
                 disabled,
                 setDisabled,
                 setRound,

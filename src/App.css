@@ -147,6 +147,7 @@ body{
   align-items: center;
   position: relative;
   padding-bottom: var(--largest-padding);
+  height: 50vh;
 }
 
 @media (min-width:900px){
@@ -242,7 +243,7 @@ body{
 }
 
 /* completion modal */
-.completion-modal {
+.completion-modal, .help-modal {
   width: var(--small-screen-width);
   border-radius: var(--border-radius);
   background-color: var(--transparent-blue-color);
@@ -338,4 +339,55 @@ body{
   padding: 0%;
   margin: 5px 0%;
   color: var(--blue-color);
+}
+
+.help {
+  position: fixed;
+  right: 20px;
+  bottom: 5px;
+  color: white;
+  background-color: var(--blue-color);
+  border-radius: var(--border-radius);
+  padding: var(--smaller-padding) var(--container-padding);
+  box-shadow: var(--box-shadow);
+  border: none;
+}
+
+@media (min-width:900px){
+ .help{
+  font-size: 1.2rem;
+  padding: var(--container-padding) var(--large-padding);
+ }
+} 
+
+.help-modal{
+  justify-content: flex-start;
+  gap: 20px;
+  width: var(--small-screen-width);
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+@media (min-width:900px){
+  .help-modal{
+    width: var(--mediam-screen-width);
+  } 
+} 
+
+@media (min-width:1224px){
+  .help-modal{
+    width: var(--large-screen-width);
+  }   
+}  
+
+.help-modal p{
+  line-height: 1.2rem;
+}
+
+.help-modal{
+
 }

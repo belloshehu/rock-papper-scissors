@@ -4,18 +4,18 @@ import paper from './images/paper.jpg'
 
 const collection = [
     {
-        text: "Rock",
-        rank: 2,
+        text: "rock",
+        subordinate: "scissors",
         image: rock
     },
     {
-        text: "Paper",
-        rank: 1,
+        text: "paper",
+        subordinate: "rock",
         image: paper
     },
     {
-        text: "Scissors",
-        rank: 0,
+        text: "scissors",
+        subordinate: "paper",
         image: scissors
     }
 ]
