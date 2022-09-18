@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { useRef } from 'react'
 import { FaDesktop, FaUser, FaTimes, FaCrown, FaSmile, FaTrophy } from 'react-icons/fa'
 import { useGlobalContext } from '../context'
+import { UserLoser } from './UserLoser'
+import { UserWinner } from './UserWinner'
 
 export const Completion = () => {
     const modalRef = useRef(null)
@@ -27,7 +29,6 @@ export const Completion = () => {
 
     useEffect(() => {
       const timeOut = setTimeout(()=>{ setAnimationClass('translate')}, 3000)
-    
       return () => {
         clearTimeout(timeOut)
       }
@@ -38,19 +39,8 @@ export const Completion = () => {
             {
                 getFinalWinner()?
                 (
-                    <div className='winner-wrapper'>
-                        <div className='trophy-wrapper'>
-                            <FaTrophy className={`large-icon gold zoom trophy ${animationClass}`}/>
-                        </div>
-                        <h1>Congratulation!</h1>
-
-                        <div>
-                            {score.user > score.computer? <FaUser className='player zoom' /> : <FaDesktop className='player zoom'/>}
-                        </div>
-                        {/* <h2 className='score'>{getFinalWinner()}/10</h2> */}
-                        { score.user > score.computer? <p>You are the new king</p>:<p>Computer is the new king</p>}
-                        <div><FaCrown className='player large-icon' /></div>
-                    </div>
+                    score.user > score.computer?
+                        <UserWinner animationClass={animationClass}/>:<UserLoser animationClass={animationClass}/>
                 ):
                 (
                     <div className='winner-wrapper'>
