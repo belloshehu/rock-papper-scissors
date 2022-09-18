@@ -1,9 +1,10 @@
 import React from 'react'
 import { useRef, useEffect } from 'react'
-import collection from '../collection'
 import { useGlobalContext } from '../context'
 
+
 const Play = () => {
+  let randomNumber = 0
   const {
     setRound, 
     isPlaying, 
@@ -46,6 +47,21 @@ const Play = () => {
   }
 
   useEffect(() => {
+    let interval = null
+
+    if(isPlaying){
+      interval = setInterval(()=>{
+        if(randomNumber < 2){
+          randomNumber++
+        }else{
+          randomNumber = 0
+        }
+        setChoice({...choice, computer:collection[randomNumber]})
+      }, 200)
+    }
+    return ()=>{
+      clearInterval(interval)
+    }
   }, [disabled])
   
   return (

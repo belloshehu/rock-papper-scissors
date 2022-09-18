@@ -20,25 +20,16 @@ const Selection = ({rank, text, randomState}) => {
     const setWinnerRound = (userChoice, computerChoice) =>{
         /*determines who the winner is */
 
-        // const {user: userChoice, computer: computerChoice} = choice
-        // console.log('user:', userChoice, 'comu:', computerChoice)
-
         if(userChoice.subordinate === computerChoice.text){
-            console.log('user win')
             setScore( (prev)=>{
                 return {...prev, user: prev.user + 1}
             } )
         }else if(userChoice.text === computerChoice.subordinate){
-            console.log('comp win')
             setScore( (prev)=>{
                 return {...prev, computer: prev.computer + 1}
             } )
         }else{
             setScore(score)
-            // console.log('no winner')
-            // console.log(userChoice.text, userChoice.subordinate)
-            // console.log(computerChoice.subordinate, computerChoice.text)
-
         }
     }
     const getRandomChoice = () =>{
