@@ -14,13 +14,16 @@ const AppProvider = ({children}) =>{
     const [choice, setChoice] = useState({user: {}, computer: {}})
     const [round, setRound] = useState(roundSize)
     const [isPlaying, setIsPlaying] = useState(false)
-    const [playingClassName, setPlayingClassName] = useState('playing')
     const [disabled, setDisabled] = useState(true)
     const [showHelp, setShowHelp] = useState(false)
+    const [win, setWin] = useState(false) // use to track if user wins a round or not
+    const [roundScore, setRoundScore] = useState({user:0, computer: 0})
 
     return(
         <AppContext.Provider value={
             {
+                win,
+                setWin,
                 score, 
                 setScore, 
                 round, 
@@ -33,8 +36,9 @@ const AppProvider = ({children}) =>{
                 choice,
                 collection, 
                 setChoice,
+                roundScore,
+                setRoundScore,
                 setIsPlaying,
-                setPlayingClassName
             }
         }>
 

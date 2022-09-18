@@ -6,27 +6,17 @@ import { useGlobalContext } from '../context'
 const Play = () => {
   let randomNumber = 0
   const {
-    setRound, 
+    round,
+    choice,
     isPlaying, 
     disabled,
     collection,
-    choice,
-    round,
     setChoice,
     setDisabled,
-    setIsPlaying, 
-    playingClassName,
-    setPlayingClassName
+    setIsPlaying,
   } = useGlobalContext()
 
   const btnRef = useRef(null)
-
-  const getRandomChoice = () =>{
-    // returns a random choice for computer
-    let randomRank = Math.floor(Math.random() * 3)
-    const computerChoice = collection.filter(item=> item.rank === randomRank)
-    setChoice({...choice, computer: computerChoice[0]})
-  }
 
   const handlePlayGame = (e)=>{
     // update round state value

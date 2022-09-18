@@ -35,7 +35,7 @@ export const Header = () => {
             <FaUser className={`player ${score.user > score.computer? 'green': 'red'}`} />
             <div className='img-wrapper'>
               <img className='img-choice' src={choice.user.image}/>
-              </div>
+            </div>
             <p>{score.user}</p>
             <div>
             {

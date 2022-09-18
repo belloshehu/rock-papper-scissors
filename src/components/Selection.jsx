@@ -2,17 +2,17 @@ import React from 'react'
 import { useRef, useEffect } from 'react'
 import { useGlobalContext } from '../context'
 
-const Selection = ({rank, text, randomState}) => {
+const Selection = ({text, randomState}) => {
     const {
-            disabled, 
-            choice, 
             score,
+            disabled, 
             setRound,
             setScore,
             setChoice, 
             collection, 
             setDisabled,
-            setIsPlaying
+            setIsPlaying,
+            setRoundScore,
         } = useGlobalContext()
 
     const selectionRef = useRef(null)
@@ -21,14 +21,17 @@ const Selection = ({rank, text, randomState}) => {
         /*determines who the winner is */
 
         if(userChoice.subordinate === computerChoice.text){
+            setRoundScore({computer: 0, user: 1})
             setScore( (prev)=>{
                 return {...prev, user: prev.user + 1}
-            } )
+            })
         }else if(userChoice.text === computerChoice.subordinate){
+            setRoundScore({computer: 1, user: 0})
             setScore( (prev)=>{
                 return {...prev, computer: prev.computer + 1}
-            } )
-        }else{
+            })
+        }if(userChoice.text === computerChoice.text){
+            setRoundScore({computer: 0, user: 0})
             setScore(score)
         }
     }
@@ -41,12 +44,10 @@ const Selection = ({rank, text, randomState}) => {
     const handleSelection = (e) =>{
         // TODO: set selection state value
         // from parent component: SelectionList
-        const {computer, user} = choice
         console.log('text:', text)
         const userChoice = collection.filter(item => item.text === text)[0]
         const computerChoice = getRandomChoice()
         setChoice({computer: computerChoice, user: userChoice})
-        console.log({computer: computerChoice, user: userChoice})
 
         // enable button for next round
         setDisabled(prev => !prev)
@@ -70,7 +71,7 @@ const Selection = ({rank, text, randomState}) => {
                 onClick={handleSelection}
                 className={`selection-btn ${randomState} ${!disabled? '':''} `
                 } 
-                ref={selectionRef}>{text}
+                ref={selectionRef}>{text[0].toUpperCase() + text.slice(1, text.length)}
             </button>
         </>
     )

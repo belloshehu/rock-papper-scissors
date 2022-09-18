@@ -80,7 +80,7 @@ body{
   padding: 0 var(--small-padding);
   text-align: center;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  
+  box-shadow: var(--box-shadow);
 }
 
 .player{
@@ -265,7 +265,6 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px dashed orange;
   transition: all 1s linear;
 }
 .winner-wrapper {
@@ -395,4 +394,31 @@ body{
 
 .help-modal{
 
+}
+
+/* round win */
+
+.round-winner-wrapper {
+  position: absolute;
+  width: var(--smaller-screen-width);
+  height: 50vh;
+  z-index: 3;
+  transition: all 0.3s linear;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  top: 25vh;
+}
+
+
+.float{
+
+}
+.round-win{
+  width: var(--small-screen-width);
+}
+
+.hidden {
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }

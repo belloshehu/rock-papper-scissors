@@ -8,10 +8,12 @@ import { Completion } from './components/Completion';
 import { useGlobalContext } from './context';
 import { FaHandsHelping } from 'react-icons/fa';
 import { Help } from './components/Help';
+import { Win } from './components/Win';
 
 function App() {
   const first = useContext({}) // 
-  const {round, isPlaying, setShowHelp, showHelp} = useGlobalContext()
+  const {round, isPlaying, setShowHelp, showHelp, roundScore} = useGlobalContext()
+
   const showModal = () =>{
     setShowHelp(true)
   }
@@ -21,6 +23,7 @@ function App() {
       {(round === 0 && !isPlaying) && <Completion />}
       <Header/>
       <SelectionList />
+      {(round > 0) && <Win />}
       {showHelp && <Help />}
       <button className='help' onClick={showModal}>help</button>
     </div>
