@@ -5,7 +5,7 @@ import { FaBalanceScale, FaCrown, FaSadTear} from 'react-icons/fa'
 import { useGlobalContext } from '../context'
 
 export const Win = () => {
-    const {roundScore} = useGlobalContext()
+    const {roundScore, round} = useGlobalContext()
     const divRef = useRef(null)
     const [animationClass, setAnimationClass] = useState('rotate')
 
@@ -24,7 +24,7 @@ export const Win = () => {
     if(roundScore.user === roundScore.computer){
         return (
             <div ref={divRef} className='round-winner-wrapper'>
-                <FaBalanceScale className='large-icon red zoom round-win'/>
+             {round < 10? <FaBalanceScale className='large-icon red zoom round-win'/>: ''}
             </div>
         )
     }else if(roundScore.user > roundScore.computer){

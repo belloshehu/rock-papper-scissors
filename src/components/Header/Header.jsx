@@ -1,6 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { AppContext } from '../../context'
+import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import { FaCrown, FaDesktop, FaTimes, FaUser } from 'react-icons/fa'
 
@@ -21,7 +20,7 @@ export const Header = () => {
           <div className='player-wrapper computer-wrapper'>
             <FaDesktop className={`player ${score.computer > score.user? 'green': 'red'}`}/>
             <div className='img-wrapper'>
-              <img className='img-choice' src={choice.computer.image}/>
+              {round === 10? '' :<img className='img-choice' src={choice.computer.image} alt='computer choice'/>}
             </div>
             <p>{score.computer}</p>
             <div>
@@ -34,7 +33,7 @@ export const Header = () => {
           <div className='player-wrapper user-wrapper'>
             <FaUser className={`player ${score.user > score.computer? 'green': 'red'}`} />
             <div className='img-wrapper'>
-              <img className='img-choice' src={choice.user.image}/>
+              {round === 10? '' :<img className='img-choice' src={choice.user.image} alt='user choice'/>}
             </div>
             <p>{score.user}</p>
             <div>
